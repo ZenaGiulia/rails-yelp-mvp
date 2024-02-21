@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+genre = ["chinese", "italian", "japanese", "french", "belgian"]
+
+5.times do
+  Restaurant.create(
+     name: Faker::Book.title,
+     address: Faker::Book.author,
+     phone_number: "",
+     category: genre.sample
+   )
+ end

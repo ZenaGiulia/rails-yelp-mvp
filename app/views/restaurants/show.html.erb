@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @restaurant %>
+
+
+<% @restaurant.reviews.each do |review| %>
+  <p>Rating: <%= review.rating %>
+  <p><%= review.content %>
+    <%= link_to "delete this review", review_path(review),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </p>
+<% end %>
+
+<div>
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
+  <%= link_to "Back to restaurants", restaurants_path %>
+  <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
+  <%= render "reviews/form", review: @review, restaurant: @restaurant %>
+</div>
